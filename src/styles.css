@@ -1,0 +1,244 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom portfolio tokens */
+  --color-charcoal-base: var(--charcoal-base);
+  --color-charcoal-elevated: var(--charcoal-elevated);
+  --color-charcoal-border: var(--charcoal-border);
+  --color-ember: var(--ember);
+  --color-ember-muted: var(--ember-muted);
+  --color-ember-soft: var(--ember-soft);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  --charcoal-base: #1a1a1a;
+  --charcoal-elevated: #2d2d2d;
+  --charcoal-border: #4a4a4a;
+  --ember: #e85d3a;
+  --ember-muted: #e85d3a80;
+  --ember-soft: #f0a78d;
+  --font-display: "Lora", serif;
+  --font-body: "Nunito Sans", sans-serif;
+
+  --background: #1a1a1a;
+  --foreground: #e7e5e4;
+  --card: #2d2d2d;
+  --card-foreground: #e7e5e4;
+  --popover: #2d2d2d;
+  --popover-foreground: #e7e5e4;
+  --primary: #e85d3a;
+  --primary-foreground: #ffffff;
+  --secondary: #2d2d2d;
+  --secondary-foreground: #e7e5e4;
+  --muted: #2d2d2d;
+  --muted-foreground: #a8a29e;
+  --accent: #e85d3a;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #e85d3a;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #e7e5e4;
+  --sidebar-primary: #e85d3a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d2d2d;
+  --sidebar-accent-foreground: #e7e5e4;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #e85d3a;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spotlight {
+  0%,
+  100% {
+    opacity: 0.4;
+    filter: blur(40px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(60px);
+  }
+}
+
+@keyframes avatar-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes avatar-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes avatar-border-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes avatar-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@utility animate-spotlight {
+  animation: spotlight 8s infinite;
+}
+
+@utility animate-avatar-breathe {
+  animation: avatar-breathe 5s ease-in-out infinite;
+}
+
+@utility animate-avatar-glow {
+  animation: avatar-glow 4s ease-in-out infinite;
+}
+
+@utility animate-avatar-border {
+  background-size: 200% 200%;
+  animation: avatar-border-shimmer 6s ease infinite;
+}
+
+@utility animate-avatar-entrance {
+  animation: avatar-entrance 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Scroll reveal — éléments éparpillés qui se rassemblent */
+.reveal {
+  opacity: 0;
+  transform: translateY(46px) scale(0.96) rotate(1deg);
+  transition:
+    opacity 0.9s cubic-bezier(0.19, 1, 0.22, 1),
+    transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  transform: translateX(-72px) translateY(20px) scale(0.94) rotate(-3deg);
+}
+
+.reveal-right {
+  transform: translateX(72px) translateY(20px) scale(0.94) rotate(3deg);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
